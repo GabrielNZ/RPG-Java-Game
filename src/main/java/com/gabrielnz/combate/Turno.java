@@ -14,6 +14,7 @@ public class Turno {
     public void turnoBatalha(Jogador jogador, Monstro monstro) {
         boolean congelado = false;
         boolean armaduraIgnore = false;
+        jogador.setFugiu(false);
         Scanner ler = new Scanner(System.in);
         System.out.println("╔════════════════════════════════════════╗");
         System.out.println("║          ⚔️ BATALHA COMEÇA! ⚔️         ║");
