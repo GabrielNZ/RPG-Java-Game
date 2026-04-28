@@ -23,47 +23,66 @@ public class Pocao extends Item {
     public void beberPocao(Jogador jogador, Pocao pocao) {
         jogador.getInventarioJogador().removePocao(pocao);
         if (pocao.getTipo() == Tipo.VIDA) {
-            if ((jogador.getVida() + pocao.getValorRecuperado()) > jogador.getVidaMax()) {
-                jogador.setVida(jogador.getVidaMax());
+            if(jogador.getVida().equals(jogador.getVidaMax())){
                 System.out.println("╔═════════════════════════════════╗");
                 System.out.printf("║  🍶 %s foi bebida!  ║\n", pocao.getNome());
                 System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Você recuperou +%-2d ❤️        ║\n", pocao.getValorRecuperado());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Vida atualizada: %-2d 👤️       ║\n", jogador.getVidaMax());
+                System.out.println("║   Sua vida já está cheia!       ║");
                 System.out.println("╚═════════════════════════════════╝");
                 Transicao.transicao();
             } else {
-                jogador.setVida(jogador.getVida() + pocao.getValorRecuperado());
+                if ((jogador.getVida() + pocao.getValorRecuperado()) > jogador.getVidaMax()) {
+                    jogador.setVida(jogador.getVidaMax());
+                    System.out.println("╔═════════════════════════════════╗");
+                    System.out.printf("║  🍶 %s foi bebida!  ║\n", pocao.getNome());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Você recuperou +%-2d ❤️        ║\n", pocao.getValorRecuperado());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Vida atualizada: %-2d 👤️       ║\n", jogador.getVidaMax());
+                    System.out.println("╚═════════════════════════════════╝");
+                    Transicao.transicao();
+                } else {
+                    jogador.setVida(jogador.getVida() + pocao.getValorRecuperado());
+                    System.out.println("╔═════════════════════════════════╗");
+                    System.out.printf("║  🍶 %s foi bebida!  ║\n", pocao.getNome());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Você recuperou +%-2d ❤️        ║\n", pocao.getValorRecuperado());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Vida atualizada: %-2d 👤️       ║\n", jogador.getVida());
+                    System.out.println("╚═════════════════════════════════╝");
+                    Transicao.transicao();
+                }
+            }
+        } else if (pocao.getTipo() == Tipo.MANA) {
+            if(jogador.getMana().equals(jogador.getManaMax())){
                 System.out.println("╔═════════════════════════════════╗");
                 System.out.printf("║  🍶 %s foi bebida!  ║\n", pocao.getNome());
                 System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Você recuperou +%-2d ❤️        ║\n", pocao.getValorRecuperado());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Vida atualizada: %-2d 👤️       ║\n", jogador.getVida());
+                System.out.println("║   Sua mana já está cheia!       ║");
                 System.out.println("╚═════════════════════════════════╝");
                 Transicao.transicao();
-            }
-        } else if (pocao.getTipo() == Tipo.MANA) {
-            if ((jogador.getMana() + pocao.getValorRecuperado()) > jogador.getManaMax()) {
-                jogador.setVida(jogador.getVidaMax());
-                System.out.println("╔═════════════════════════════════╗");
-                System.out.printf("║   🍶 %s foi bebida!   ║\n", pocao.getNome());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Você recuperou +%-2d 🔮        ║\n", pocao.getValorRecuperado());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Vida atualizada: %-2d 👤️       ║\n", jogador.getManaMax());
-                System.out.println("╚═════════════════════════════════╝");
-                Transicao.transicao();
-                jogador.setMana(jogador.getMana() + pocao.getValorRecuperado());
-                System.out.println("╔═════════════════════════════════╗");
-                System.out.printf("║   🍶 %s foi bebida!   ║\n", pocao.getNome());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Você recuperou +%-2d 🔮        ║\n", pocao.getValorRecuperado());
-                System.out.println("╠═════════════════════════════════╣");
-                System.out.printf("║   Mana atualizada: %-2d 👤       ║\n", jogador.getMana());
-                System.out.println("╚═════════════════════════════════╝");
-                Transicao.transicao();
+            } else {
+                if ((jogador.getMana() + pocao.getValorRecuperado()) > jogador.getManaMax()) {
+                    jogador.setMana(jogador.getManaMax());
+                    System.out.println("╔═════════════════════════════════╗");
+                    System.out.printf("║   🍶 %s foi bebida!   ║\n", pocao.getNome());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Você recuperou +%-2d 🔮        ║\n", pocao.getValorRecuperado());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Mana atualizada: %-2d 👤️       ║\n", jogador.getManaMax());
+                    System.out.println("╚═════════════════════════════════╝");
+                    Transicao.transicao();
+                } else {
+                    jogador.setMana(jogador.getMana() + pocao.getValorRecuperado());
+                    System.out.println("╔═════════════════════════════════╗");
+                    System.out.printf("║   🍶 %s foi bebida!   ║\n", pocao.getNome());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Você recuperou +%-2d 🔮        ║\n", pocao.getValorRecuperado());
+                    System.out.println("╠═════════════════════════════════╣");
+                    System.out.printf("║   Mana atualizada: %-2d 👤       ║\n", jogador.getMana());
+                    System.out.println("╚═════════════════════════════════╝");
+                    Transicao.transicao();
+                }
             }
         }
     }

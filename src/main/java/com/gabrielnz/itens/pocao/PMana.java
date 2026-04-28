@@ -20,7 +20,4 @@ public class PMana extends Pocao {
             this.valorRecuperado = 20;
         }
     }
-    public void beberPocao(){
-
-    }
 }

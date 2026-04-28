@@ -9,7 +9,7 @@ public class Guerreiro extends Jogador {
         this.vida = 15;
         this.vidaMax = vida;
         this.dano = 3;
-        this.mana = 50;
+        this.mana = 30;
         this.manaMax = mana;
         this.iniciativa = 0;
     }

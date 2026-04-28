@@ -47,6 +47,7 @@ public class Guia {
                         System.out.printf("║ 🔮 Mana: %-2d                          ║\n", jogador.getMana());
                         System.out.println("╚══════════════════════════════════════╝");
                     }
+                    Transicao.transicao();
                     break;
                 default:
                     System.out.println("Valor invalido...");
